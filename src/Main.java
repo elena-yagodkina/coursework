@@ -37,22 +37,28 @@ public class Main {
 
     public static void findMinSalary(Employee[] employees) {
         double minSalary = employees[0].getSalary();
+        String employee1 = employees[0].getFullName();
         for (Employee employee: employees) {
             if (employee.getSalary() < minSalary) {
                 minSalary = employee.getSalary();
+                employee1 = employee.getFullName();
             }
         }
         System.out.println("Минимальная зарплата = " + minSalary + " рублей");
+        System.out.println("Сотрудник с минимальной зарплатой: " + employee1);
     }
 
     public static void findMaxSalary(Employee[] employees) {
         double maxSalary = employees[0].getSalary();
+        String employee2 = employees[0].getFullName();
         for (Employee employee: employees) {
             if (employee.getSalary() > maxSalary) {
                 maxSalary = employee.getSalary();
+                employee2 = employee.getFullName();
             }
         }
         System.out.println("Максимальная зарплата = " + maxSalary + " рублей");
+        System.out.println("Сотрудник с максимальной зарплатой: " + employee2);
     }
 
     public static void printFullName(Employee[] employees) {
