@@ -4,15 +4,15 @@ public class Employee {
     private String fullName;
     private double salary;
     private String department;
-    private static AtomicInteger COUNTER = new AtomicInteger(0);
+    private static int counter;
     private int id;
 
     public Employee() {
-        id = COUNTER.getAndIncrement();
+        id = ++counter;
     }
 
     public Employee (String fullName, double salary, String department) {
-        this.id = COUNTER.incrementAndGet();
+        this.id = ++counter;
         this.fullName = fullName;
         this.salary = salary;
         this.department = department;
