@@ -44,6 +44,12 @@ public class Main {
         calculateSumSalaryInDep(employees, "4");
         calculateSumSalaryInDep(employees, "5");
         System.out.println();
+        calculateAverageSalaryInDep(employees, "1");
+        calculateAverageSalaryInDep(employees, "2");
+        calculateAverageSalaryInDep(employees, "3");
+        calculateAverageSalaryInDep(employees, "4");
+        calculateAverageSalaryInDep(employees, "5");
+        System.out.println();
         indexingSalaryInDep(employees, 5, "1");
         indexingSalaryInDep(employees, 3, "2");
         indexingSalaryInDep(employees, 4, "3");
@@ -60,11 +66,7 @@ public class Main {
         System.out.println();
         findEmployeesWithSalaryLess(employees, 50000);
         System.out.println();
-        calculateAverageSalaryInDep(employees, "1");
-        calculateAverageSalaryInDep(employees, "2");
-        calculateAverageSalaryInDep(employees, "3");
-        calculateAverageSalaryInDep(employees, "4");
-        calculateAverageSalaryInDep(employees, "5");
+
 
     }
 
@@ -108,9 +110,10 @@ public class Main {
         }
     }
 
-    public static void indexingSalary(Employee[] employees, int prc) {
+    public static void indexingSalary(Employee[] employees, int percent) {
         for (Employee employee : employees) {
-            employee.setSalary(employee.getSalary() * (100 + prc) / 100);
+            double currentSalary = employee.getSalary();
+            employee.setSalary((int) (currentSalary * (percent / 100f + 1)));
             System.out.println(employee.getFullName() + " " + employee.getSalary());
         }
     }
@@ -144,33 +147,34 @@ public class Main {
             }
         }
         System.out.println("Сумма затрат на зарплаты в месяц в отделе "
-                + idDep + " "
+                + idDep + " - "
                 + totalSalaryInDep + " рублей");
     }
 
     public static void calculateAverageSalaryInDep(Employee[] employees, String idDep) {
-        double averageSumSalaryInDep = 0;
+        double averageSalaryInDep = 0;
         double sum = 0;
         int i = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == idDep) {
                 sum = sum + employee.getSalary();
                 i++;
-                averageSumSalaryInDep = sum / i;
             }
-            System.out.println("Средняя зарплата в отделе " + idDep + " " + averageSumSalaryInDep);
         }
+        averageSalaryInDep = sum / i;
+        System.out.println("Средняя зарплата в отделе " + idDep + " " + averageSalaryInDep);
 
     }
 
-    public static void indexingSalaryInDep(Employee[] employees, int prc, String idDep) {
+    public static void indexingSalaryInDep(Employee[] employees, int percent, String idDep) {
         for (Employee employee : employees) {
             if(employee.getDepartment() == idDep) {
-                employee.setSalary(employee.getSalary() * (100 + prc) / 100);
+                double currentSalary = employee.getSalary();
+                employee.setSalary((int) (currentSalary * (percent / 100f + 1)));
                 System.out.println("Индексация зарплаты сотрудника "
                         + employee.getFullName() + " "
                         + employee.getDepartment() + " отдела на "
-                        + prc + " - " + employee.getSalary());
+                        + percent + " - " + employee.getSalary());
             }
         }
     }
