@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Employee {
     private String fullName;
     private double salary;
