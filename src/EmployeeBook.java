@@ -57,7 +57,7 @@ public class EmployeeBook {
     public void findEmployeeWithMinSalaryInDep(String idDep) {
         Employee tempEmployee = employees[0];
         for (Employee employee : employees) {
-            if(employee.getDepartment() == idDep && employee.getSalary() < tempEmployee.getSalary()){
+            if(employee.getDepartment().equals(idDep) && employee.getSalary() < tempEmployee.getSalary()){
                 tempEmployee = employee;
             }
         }
@@ -67,7 +67,7 @@ public class EmployeeBook {
     public void findEmployeeWithMaxSalaryInDep(String idDep) {
         Employee tempEmployee = employees[0];
         for (Employee employee : employees) {
-            if(employee.getDepartment() == idDep && employee.getSalary() > tempEmployee.getSalary()){
+            if(employee.getDepartment().equals(idDep) && employee.getSalary() > tempEmployee.getSalary()){
                 tempEmployee = employee;
             }
         }
@@ -78,7 +78,7 @@ public class EmployeeBook {
     public void calculateSumSalaryInDep(String idDep) {
         double totalSalaryInDep = 0;
         for (Employee employee : employees) {
-            if(employee.getDepartment() == idDep) {
+            if(employee.getDepartment().equals(idDep)) {
                 totalSalaryInDep += employee.getSalary();
             }
         }
@@ -92,7 +92,7 @@ public class EmployeeBook {
         double sum = 0;
         int i = 0;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == idDep) {
+            if (employee.getDepartment().equals(idDep)) {
                 sum = sum + employee.getSalary();
                 i++;
             }
@@ -104,7 +104,7 @@ public class EmployeeBook {
 
     public void indexingSalaryInDep(int percent, String idDep) {
         for (Employee employee : employees) {
-            if(employee.getDepartment() == idDep) {
+            if(employee.getDepartment().equals(idDep)) {
                 double currentSalary = employee.getSalary();
                 employee.setSalary((int) (currentSalary * (percent / 100f + 1)));
                 System.out.println("Индексация зарплаты сотрудника "
@@ -117,7 +117,7 @@ public class EmployeeBook {
 
     public void printEmployeesInDep (String idDep) {
         for (Employee employee : employees) {
-            if(employee.getDepartment() == idDep) {
+            if(employee.getDepartment().equals(idDep)) {
                 System.out.println(employee.getId() + ". " + employee.getFullName() + " " + employee.getSalary() + " рублей");
             }
         }
@@ -139,7 +139,7 @@ public class EmployeeBook {
         }
     }
 
-    public void eddEmployee(Employee e) {
+    public void addEmployee(Employee e) {
         for (int i = 0; i < employees.length; i++) {
             if(employees[i] == null) {
                 employees[i] = e;
@@ -160,7 +160,7 @@ public class EmployeeBook {
 
     public void changeSalaryEmployee(String nameEmployee, double newSalary) {
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i] != null && employees[i].getFullName() == nameEmployee) {
+            if(employees[i] != null && employees[i].getFullName().equals(nameEmployee)) {
                 employees[i].setSalary(newSalary);
             }
         }
@@ -169,7 +169,7 @@ public class EmployeeBook {
 
     public void changeDepartmentEmployee(String nameEmployee, String newDepartment) {
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i] != null && employees[i].getFullName() == nameEmployee) {
+            if(employees[i] != null && employees[i].getFullName().equals(nameEmployee)) {
                 employees[i].setDepartment(newDepartment);
             }
         }
@@ -178,7 +178,7 @@ public class EmployeeBook {
 
     public void listEmployeeWithDepartment(String idDep) {
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i] != null && employees[i].getDepartment() == idDep) {
+            if(employees[i] != null && employees[i].getDepartment().equals(idDep)) {
                 System.out.println(employees[i].getFullName() + ": отдел " + employees[i].getDepartment());
             }
         }

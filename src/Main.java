@@ -3,16 +3,16 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         EmployeeBook employees = new EmployeeBook(10);
-        employees.eddEmployee(new Employee("Епифанцев Анатолий Андреевич", 50000, "1"));
-        employees.eddEmployee (new Employee("Савельева Анна Ивановна", 57000, "2"));
-        employees.eddEmployee (new Employee("Соколова Мария Александровна", 54200, "3"));
-        employees.eddEmployee (new Employee("Игнатьев Артем Игоревич", 42000, "4"));
-        employees.eddEmployee (new Employee("Васильев Роман Сергеевич", 61500, "5"));
-        employees.eddEmployee (new Employee("Бородулина Инна Алексеевна", 41400, "1"));
-        employees.eddEmployee (new Employee("Шишкин Евгений Сергеевич", 72300, "2"));
-        employees.eddEmployee (new Employee("Баринов Олег Иванович", 40000, "3"));
-        employees.eddEmployee (new Employee("Громова Ольга Демьяновна", 62400, "4"));
-        employees.eddEmployee (new Employee("Игрунова Ирина Владимировна", 55600, "5"));
+        employees.addEmployee(new Employee("Епифанцев Анатолий Андреевич", 50000, "1"));
+        employees.addEmployee (new Employee("Савельева Анна Ивановна", 57000, "2"));
+        employees.addEmployee (new Employee("Соколова Мария Александровна", 54200, "3"));
+        employees.addEmployee (new Employee("Игнатьев Артем Игоревич", 42000, "4"));
+        employees.addEmployee (new Employee("Васильев Роман Сергеевич", 61500, "5"));
+        employees.addEmployee (new Employee("Бородулина Инна Алексеевна", 41400, "1"));
+        employees.addEmployee (new Employee("Шишкин Евгений Сергеевич", 72300, "2"));
+        employees.addEmployee (new Employee("Баринов Олег Иванович", 40000, "3"));
+        employees.addEmployee (new Employee("Громова Ольга Демьяновна", 62400, "4"));
+        employees.addEmployee (new Employee("Игрунова Ирина Владимировна", 55600, "5"));
         System.out.println();
 
         employees.printEmployees();
